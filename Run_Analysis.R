@@ -37,7 +37,7 @@
       combined_excercise <- rbind(y_train_data, y_test_data)
       combined_test_data <- rbind(x_train_data,x_test_data)
 
-      head(combined_data)
+      head(combined_test_data)
       #new dataframes consisting of only columns picked by mean or std
       clean_test_data <-data.frame(sapply(subnames, function(x) combined_test_data[,x]))
 
