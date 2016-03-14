@@ -1,26 +1,26 @@
 # program input-
 #https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-      DT <- read.table("./data/UCI HAR Dataset 2/features.txt") -column names
-      x_train_data <- read.table("./data/UCI HAR Dataset 2/train/X_train.txt")
-      subject_train_data <- read.table("./data/UCI HAR Dataset 2/train/subject_train.txt") - subject
-      y_train_data <- read.table("./data/UCI HAR Dataset 2/train/y_train.txt") - excercise class
+#One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:
 
-      x_test_data <- read.table("./data/UCI HAR Dataset 2/test/X_test.txt")
-      y_test_data <- read.table("./data/UCI HAR Dataset 2/test/y_test.txt") -excercise class
-      subject_test_data <- read.table("./data/UCI HAR Dataset 2/test/subject_test.txt")
+#http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+      DT from "./data/UCI HAR Dataset 2/features.txt" -column names
+      x_train_data "./data/UCI HAR Dataset 2/train/X_train.txt"
+      subject_train_data from "./data/UCI HAR Dataset 2/train/subject_train.txt" - subject
+      y_train_data from "./data/UCI HAR Dataset 2/train/y_train.txt" - excercise class
 
+      x_test_data from "./data/UCI HAR Dataset 2/test/X_test.txt"
+      y_test_data from "./data/UCI HAR Dataset 2/test/y_test.txt" -excercise class
+      subject_test_data from "./data/UCI HAR Dataset 2/test/subject_test.txt"
 
 #intermediate data objects
 
-names <- data.frame(col_id = DT[,1],names = DT[,2])
-subnames <- grep(paste(c("std","mean[^freq]*$"),collapse="|"), names$names,value=F)
-subnames_str <- grep(paste(c("std","mean[^freq]*$"),collapse="|"), names$names,value=TRUE)
-subnames_str <- c(subnames_str,"subject", "activity")
+subnames column number of means and standard deviations
+subnames_str column readable name of means and standard deviations
 combined_subject <- rbind(subject_train_data, subject_test_data)
 combined_excercise <- rbind(y_train_data, y_test_data)
 combined_test_data <- rbind(x_train_data,x_test_data)
 clean_data <- cbind( clean_test_data, combined_subject, combined_excercise )
-'
+
 #Program output
 avedata - dataframe of averages grouped by activity and subject
 independent_tidy_data_set.csv - output to working directory
