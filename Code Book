@@ -12,7 +12,7 @@
       y_test_data from "./data/UCI HAR Dataset 2/test/y_test.txt" -excercise class
       subject_test_data from "./data/UCI HAR Dataset 2/test/subject_test.txt"
 
-#intermediate data objects
+#intermediate data objects in script
 
 subnames column number of means and standard deviations
 subnames_str column readable name of means and standard deviations
@@ -25,3 +25,7 @@ clean_data <- cbind( clean_test_data, combined_subject, combined_excercise )
 avedata - dataframe of averages grouped by activity and subject
 independent_tidy_data_set.csv - output to working directory
 independent_tidy_data_set.txt -  output to working directory
+
+#Tidy Data variables-
+column headers:
+
