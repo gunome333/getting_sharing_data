@@ -1,12 +1,9 @@
 # getting_sharing_data
 #course project- combining and cleaning human physical movement dataset and generating table of averages
 
-#from class:
-#Here are the data for the project:
-#https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+#from class Here are the data for the project: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-#download file and manually unzip.
-#this script assumes data are stored in subdirectory /data
+#download file and manually unzip.-this script assumes data are stored in subdirectory /data
       url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06pid.csv"
       download.file(url, destfile="./data/personaldata.csv", method = "curl")
       #manually unzip
@@ -24,7 +21,7 @@
       subnames_str <- c(subnames_str,"subject", "activity") # add 2 final columns names for subject and activity
 
 
-      #read in the training and test files, combine them, then make a dataframe of columns corresponding to subnames
+#read in the training and test files, combine them, then make a dataframe of columns corresponding to subnames
       x_train_data <- read.table("./data/UCI HAR Dataset 2/train/X_train.txt")
       subject_train_data <- read.table("./data/UCI HAR Dataset 2/train/subject_train.txt")
       y_train_data <- read.table("./data/UCI HAR Dataset 2/train/y_train.txt")
@@ -44,10 +41,10 @@
 
       clean_data <- cbind( clean_test_data, combined_subject, combined_excercise )
 
-      #attach names to clean_data columns from data.frame-names
+#attach names to clean_data columns from data.frame-names
       colnames(clean_data) <-  subnames_str #name the columns
 
-      #rename activity class number to name
+#rename activity class number to name
       for (i in 1:nrow(clean_data)) {
             if (clean_data$activity[i] == "1") {
                   clean_data$activity[i]= "WALKING"
